@@ -1,0 +1,53 @@
+version: 0.1
+# version remains the same
+
+runson: win
+# Specifies the OS to run on
+
+globalTimeout: 90
+# The machine will automatically terminate after 90 minutes. This can be extended to 150 minutes if needed.
+
+autosplit: true
+# Keeps this setting as is for automatic splitting
+
+concurrency: 2
+# Number of parallel executions for the test
+
+captureScreenRecordingForScenarios: true
+# Enables screen recording for test scenarios
+
+env:
+  TARGET_OS: Windows 10
+
+pre:
+  - echo "Downloading Panaya Agent 🔥"
+  - reg add "HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome" /v JavaScriptEnabled /t REG_DWORD /d 1 /f
+  - curl -O https://cdn.panaya.com/downloads/TestAutomation/Agent_Prod/Agent.msi
+  - msiexec /i Agent.msi /quiet
+  - echo "✅ Panaya Agent Installed"
+  - python copy.py
+  - echo "✅ Setting Configurations"
+  - sleep 5
+  - pip install pyautogui
+
+# The 'pre' step configures the machine to set up the agents. It downloads and installs the Panaya agent and runs configuration settings.
+
+backgroundDirectives:
+  shell: bash
+  commands:
+    - name: background runner
+      command: pip install psutil && python main.py
+
+# The 'background' step ensures that necessary services, like servers, run in the background, such as moving settings.json and starting the Panaya agent.
+
+testDiscovery:
+  type: raw
+  mode: dynamic
+  shell: bash
+  command: cat discovery.txt
+
+# 'testDiscovery' determines how the tests are discovered. It uses Linux commands or a Python script to locate the test files.
+
+testRunnerCommand: Sleep 1000
+
+# The 'testRunnerCommand' specifies how the discovered test files are executed, where $test is replaced by the discovered test file path.

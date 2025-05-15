@@ -17,8 +17,8 @@ import subprocess
 new_values = {
     "panayaUrl": "https://emea.panaya.com/",
     "systemUid": "_4d710da2_19536b42a4f_3fab",
-    "userName": "sudhirj@lambdatest.com",
-    "apiToken": "sudhirj@lambdatest.com:otvFHtZuKaqyzcSVdEAKmrCV40HAFE6uD8X24XzNB1uAbEWOmedAY5vA3or2cOcL3ArTqTeA2Tmxt495k1zD5l0SsJe/TWJryukRfDcDo2e9Svgo/G+rj36pxJPumHJnhMSZWWsBSZ4SCiyJZD4BrAHGRvBCMP90/poJHRZyHws74HGMlEemDpRYbPN9EI2ChNB2ZEwPzSWto+a0dUBkBmJagkWEI7LkYqkLub7xjrUrjm/b6PKUzAUK+nppsdaRJNRbgMAOWC5EeSHkwpIvDrTltYXlH2zpQVw2aR/vaumy+rTNpP9Mv6BClhbJmeU91ECZEaD4c9UieWbW98ITEzj/nU0eB61AGyaxe8J02RtRBBGUJJk4LcQbAiENmAhOUOEUaIBzlah75sxzcAhueyi6lRIJdPosXkk5GsmGHVg="
+    "userName": "xy@lambdatest.com",
+    "apiToken": "xy"
 }
 
 # Read JSON File
